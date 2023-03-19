@@ -1,7 +1,5 @@
 ## Boilerplate Lumen - Lumen 9.x REST API
 
-Documentation is still on progress. For now, you can fork this postman collection\
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/21110464/VV4s1zF1)
 
 ### Installation
 
