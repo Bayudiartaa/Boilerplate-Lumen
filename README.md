@@ -22,5 +22,17 @@ Before you running the program, make sure you've run this command:
 - `localhost:80`
 - `Unit Test (docker-compose exec app vendor/bin/phpunit tests/{nameTest.php})`
 
+### API Route List
+| Method | URL                                      | Description           | Authorization           |
+| ------ | ---------------------------------------- | --------------------- | ------------------------|
+| POST   | localhost:80/api/auth/register           | Register              |                         |
+| POST   | localhost:80/api/auth/login              | Login                 |                         |
+| POST   | localhost:80/api/auth/forgot-password    | Forgot Password       |                         |
+| POST   | localhost:80/api/auth/reset-password     | Reset Password        |                         |
+| POST   | localhost:80/api/logout                  | Logout                | Add Authorization token |
+| POST   | localhost:80/api/user                    | Create User           | Add Authorization token |
+| POST   | localhost:80/api/user/update/{id}        | Update User           | Add Authorization token |
+| DELETE | localhost:80/api/user/{id}           | Delete User           | Add Authorization token |
+
 
 
