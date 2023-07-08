@@ -1,30 +1,38 @@
-## Boilerplate Lumen - Lumen 9.x REST API
+# Description
+A Boilerplate Lumen Service Repository and JWT auth.
 
-Documentation is still on progress. For now, you can fork this postman collection\
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://documenter.getpostman.com/view/21110464/VV4s1zF1)
-
-### Installation
-
- 1. Clone this project\
- `git clone https://git@github.com:Bayudiartaa/Boilerplate-Lumen.git`
- 2. Cd into your project folder\
- `cd Samanea-BE`
- 3. Run all the build images in docker\
- `docker-compose up -d --build`
- 3. Install dependencies\
- `docker-compose exec app composer install --ignore-platform-req=ext-zip`\
- 4. Copy env file\
- `cp .env.example .env`
- 5. Setup your database via .env file \
- `.env`
- 6. Migrate database\
- `docker-compose exec app php artisan migrate`
- 7. (Optional) Seed the database\
- `docker-compose exec app php artisan db:seed`
- 8. Create jwt key\
- `docker-compose exec app php artisan jwt:secret`
- 9. Run Unit Test\
- ` docker-compose exec app vendor/bin/phpunit tests/{nameTest.php}`
- ## Serve
- `localhost:80`
+# Features
+This API developed with PHP 8.0, Lumen Framework 9.0
  
+# Tech Used
+ ![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens) ![Lumen](https://img.shields.io/badge/lumen-%23FF2D20.svg?style=for-the-badge&logo=lumen&logoColor=white) ![PostgresSQL](https://img.shields.io/badge/postgresql-%23316192.svg?&style=for-the-badge&logo=postgresql&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+      
+# Getting Start:
+Before you running the program, make sure you've run this command:
+- `docker-compose up -d --build`
+- `docker-compose exec app composer install --ignore-platform-req=ext-zip`
+-  `cp .env.example .env`
+-  Generate the jwt secret key with `docker-compose exec app php artisan jwt:secret`
+
+### Database setup:
+- Create your own database, and put the credential in env file
+- Run the migration with `docker-compose exec app php artisan migrate --seed`
+
+### Run the program
+- `localhost:80`
+- `Unit Test (docker-compose exec app vendor/bin/phpunit tests/{nameTest.php})`
+
+### API Route List
+| Method | URL                                      | Description           | Authorization           |
+| ------ | ---------------------------------------- | --------------------- | ------------------------|
+| POST   | localhost:80/api/auth/register           | Register              |                         |
+| POST   | localhost:80/api/auth/login              | Login                 |                         |
+| POST   | localhost:80/api/auth/forgot-password    | Forgot Password       |                         |
+| POST   | localhost:80/api/auth/reset-password     | Reset Password        |                         |
+| POST   | localhost:80/api/logout                  | Logout                | Add Authorization token |
+| POST   | localhost:80/api/user                    | Create User           | Add Authorization token |
+| POST   | localhost:80/api/user/update/{id}        | Update User           | Add Authorization token |
+| DELETE | localhost:80/api/user/{id}           | Delete User           | Add Authorization token |
+
+
+
