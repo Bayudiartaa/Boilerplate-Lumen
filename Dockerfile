@@ -19,3 +19,9 @@ RUN docker-php-ext-install gd
 RUN docker-php-ext-install pdo pdo_pgsql pgsql
 
 RUN chown -R www-data:www-data /var/www/html
+
+
+# Install composer and add its bin to the PATH.
+RUN curl -s http://getcomposer.org/installer | php && \
+    echo "export PATH=${PATH}:/var/www/vendor/bin" >> ~/.bashrc && \
+    mv composer.phar /usr/local/bin/composer
